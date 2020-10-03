@@ -1,0 +1,319 @@
+#select-box{
+    text-align: center;
+}
+
+#info
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    color: #2d3667;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px;
+    background-color: white;
+}
+
+#app-cover
+{
+    position: absolute;
+    width: 300px;
+    height: 42px;
+    margin: 10px auto 0 auto;
+}
+
+#select-button
+{
+    position: relative;
+    height: 40px;
+    padding: 12px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.2s linear;
+}
+
+#options-view-button
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+    text-align: center;
+}
+
+#selected-value
+{
+    font-size: 16px;
+    line-height: 1;
+}
+
+.option i
+{
+    width: 16px;
+    height: 16px;
+}
+
+.option, .label
+{
+    color: #2d3667;
+    font-size: 16px;
+}
+
+#chevrons
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 12px;
+    padding: 9px 14px;
+}
+
+#chevrons i
+{
+    display: none;
+    height: 100%;
+    color: white;
+    font-size: 12px;
+    text-align: right;
+}
+
+#options-view-button:checked + .select-button #chevrons i
+{
+    color: white;
+}
+
+.options
+{
+    position: absolute;
+    left: 0;
+    width: 250px;
+}
+
+#options
+{
+    position: absolute;
+    top: 42px;
+    right: 0;
+    left: 0;
+    width: 298px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+#options-view-button:checked ~ #options
+{
+    border: 1px solid white;
+    border-color: white;
+}
+
+.option
+{
+    position: relative;
+    line-height: 1;
+    transition: 0.3s ease all;
+    z-index: 2;
+}
+
+.option i
+{
+    position: absolute;
+    left: 14px;
+    padding: 0;
+    display: none;
+}
+
+#options-view-button:checked ~ #options .option i
+{
+    display: block;
+    padding: 12px 0;
+}
+
+.label
+{
+    display: none;
+    padding: 0;
+}
+
+#options-view-button:checked ~ #options .label
+{
+    display: block;
+    padding: 12px 14px;    
+}
+
+.s-c
+{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+input[type="radio"]
+{
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.s-c:hover ~ i
+{
+    color: #fff;
+    opacity: 0;
+}
+
+.s-c:hover
+{
+    height: 100%;
+    z-index: 1;
+}
+
+.s-c:hover ~ i
+{
+    top: -25px;
+    animation: movedown 0.3s ease 0.1s forwards;
+}
+
+@keyframes moveup
+{
+    0%{ bottom: -25px; opacity: 0;}
+    100%{ bottom: 0; opacity: 1;}
+}
+
+@keyframes movedown
+{
+    0%{ top: -25px; opacity: 0;}
+    100%{ top: 0; opacity: 1;}
+}
+
+.label
+{
+    transition: 0.3s ease all;
+}
+
+.opt-val
+{
+    position: absolute;
+    left: 14px;
+    width: 217px;
+    height: 21px;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.option input[type="radio"]:checked ~ .opt-val
+{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.option input[type="radio"]:checked ~ i
+{
+    top: 0;
+    bottom: auto;
+    opacity: 1;
+    animation: unset;
+}
+
+.option input[type="radio"]:checked ~ i, .option input[type="radio"]:checked ~ .label
+{
+    color:#fff;
+}
+
+.option input[type="radio"]:checked ~ .label:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#options-view-button:not(:checked) ~ #options .option input[type="radio"]:checked ~ .opt-val
+{
+    top: -30px;
+}
+
+.option:nth-child(1) input[type="radio"]:checked ~ .label:before
+{
+    background-color: green;
+    border-radius: 4px 4px 0 0;
+}
+
+.option:nth-child(1) input[type="radio"]:checked ~ .opt-val
+{
+    top: -31px;
+}
+
+.option:nth-child(2) input[type="radio"]:checked ~ .label:before
+{
+    background-color: red;
+}
+
+.option:nth-child(2) input[type="radio"]:checked ~ .opt-val
+{
+    top: -71px;
+}
+
+.option .fa-on
+{
+    color: green;
+}
+
+.option .fa-off
+{
+    color: red;
+}
+
+#option-bg
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    transition: 0.3s ease all;
+    z-index: 1;
+    display: none;
+}
+
+#options-view-button:checked ~ #options #option-bg
+{
+    display: block;
+}
+
+.option:hover .label
+{
+    color: #fff;
+}
+
+.option:nth-child(1):hover ~ #option-bg
+{
+    top: 0;
+    background-color: green;
+    border-radius: 4px 4px 0 0;
+}
+
+.option:nth-child(2):hover ~ #option-bg
+{
+    top: 40px;
+    background-color: red;
+}
+
